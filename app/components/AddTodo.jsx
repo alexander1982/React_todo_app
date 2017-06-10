@@ -18,7 +18,7 @@ var AddTodo = createClass({
 		                            <div>
 			                            <form ref="form" className="todoForm" onSubmit={this.onSubmit}>
 				                            <input ref="todoText" type="text" placeholder="Add Todo"/>
-				                            <button className="button expanded">Add</button>
+				                            <button className="button">Add</button>
 			                            </form>
 		                            </div>
 		                          )
