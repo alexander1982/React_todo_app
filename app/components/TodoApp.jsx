@@ -10,35 +10,40 @@ var TodoApp = createClass({
 		                          return {
 			                          showCompleted: false,
 			                          searchText   : '',
-			                          todos: [
+			                          todos        : [
 				                          {
-					                          id  : uuid(),
-					                          text: 'Walk the dog'
+					                          id       : uuid(),
+					                          text     : 'Walk the dog',
+					                          completed: true
 				                          },
 				                          {
-					                          id  : uuid(),
-					                          text: 'Clean shit'
+					                          id       : uuid(),
+					                          text     : 'Clean shit',
+					                          completed: false
 				                          },
 				                          {
-					                          id  : uuid(),
-					                          text: 'Feed the dog'
+					                          id       : uuid(),
+					                          text     : 'Feed the dog',
+					                          completed: false
 				                          },
 				                          {
-					                          id  : uuid(),
-					                          text: 'Check mail'
+					                          id       : uuid(),
+					                          text     : 'Check mail',
+					                          completed: false
 				                          }
 			                          ]
 		                          }
 	                          },
 	                          handleAddTodo(text) {
 		                          this.setState({
-			                          todos: [
-			                          ...this.state.todos,
-			                          {
-				                          text: text,
-				                          id: uuid()
-			                          }
-			                          ]
+			                                        todos: [
+				                                        ...this.state.todos,
+				                                        {
+					                                        text     : text,
+					                                        id       : uuid(),
+					                                        completed: false
+				                                        }
+			                                        ]
 		                                        });
 	                          },
 	                          handleSearch(showCompleted, searchText) {
@@ -47,12 +52,25 @@ var TodoApp = createClass({
 			                                        searchText   : searchText.toLowerCase()
 		                                        })
 	                          },
+	                          handleToggle(id) {
+		                          var updatedTodos = this.state.todos.map((todo) => {
+			                          if(todo.id === id) {
+				                          todo.completed = !todo.completed;
+			                          }
+
+			                          return todo;
+		                          });
+
+		                          this.setState({
+			                          todos: updatedTodos
+		                                        });
+	                          },
 	                          render() {
 		                          var { todos } = this.state;
 		                          return (
 		                          <div>
 			                          <TodoSearch onSearch={this.handleSearch}/>
-			                          <TodoList todos={todos}/>
+			                          <TodoList todos={todos} onToggle={this.handleToggle}/>
 			                          <AddTodo onAddTodo={this.handleAddTodo}/>
 		                          </div>
 		                          )
