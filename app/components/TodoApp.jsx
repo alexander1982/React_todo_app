@@ -1,38 +1,22 @@
 var React = require('react');
 var createClass = require('create-react-class');
+
 var uuid = require('node-uuid');
 var TodoList = require('TodoList');
 var AddTodo = require('AddTodo');
 var TodoSearch = require('TodoSearch');
+var TodoAPI = require('TodoAPI');
 
 var TodoApp = createClass({
 	                          getInitialState() {
 		                          return {
 			                          showCompleted: false,
 			                          searchText   : '',
-			                          todos        : [
-				                          {
-					                          id       : uuid(),
-					                          text     : 'Walk the dog',
-					                          completed: true
-				                          },
-				                          {
-					                          id       : uuid(),
-					                          text     : 'Clean shit',
-					                          completed: false
-				                          },
-				                          {
-					                          id       : uuid(),
-					                          text     : 'Feed the dog',
-					                          completed: false
-				                          },
-				                          {
-					                          id       : uuid(),
-					                          text     : 'Check mail',
-					                          completed: false
-				                          }
-			                          ]
+			                          todos        : TodoAPI.getTodos()
 		                          }
+	                          },
+	                          componentDidUpdate() {
+															TodoAPI.setTodos(this.state.todos);
 	                          },
 	                          handleAddTodo(text) {
 		                          this.setState({
@@ -54,7 +38,7 @@ var TodoApp = createClass({
 	                          },
 	                          handleToggle(id) {
 		                          var updatedTodos = this.state.todos.map((todo) => {
-			                          if(todo.id === id) {
+			                          if(todo.id === id){
 				                          todo.completed = !todo.completed;
 			                          }
 
@@ -62,7 +46,7 @@ var TodoApp = createClass({
 		                          });
 
 		                          this.setState({
-			                          todos: updatedTodos
+			                                        todos: updatedTodos
 		                                        });
 	                          },
 	                          render() {
