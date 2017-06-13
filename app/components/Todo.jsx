@@ -8,7 +8,7 @@ var Todo = createClass({
 		                       <div onClick={() => {
 		                        this.props.onToggle(id);
 		                       }}>
-			                       <input type="checkbox" checked={completed}/>
+			                       <input type="checkbox" className="[radius round]" checked={completed}/>
 			                       {text}
 		                       </div>
 		                       )
