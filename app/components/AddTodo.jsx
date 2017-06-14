@@ -15,10 +15,10 @@ var AddTodo = createClass({
 	                          },
 	                          render() {
 		                          return (
-		                            <div>
+		                            <div className="container-footer">
 			                            <form ref="form" className="todoForm" onSubmit={this.onSubmit}>
 				                            <input ref="todoText" type="text" placeholder="Add Todo"/>
-				                            <button className="button">Add</button>
+				                            <button className="button expanded success">ADD</button>
 			                            </form>
 		                            </div>
 		                          )

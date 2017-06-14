@@ -1,0 +1,38 @@
+.container{
+  background-color: $light-grey-color;
+  border: 2rem solid $light-grey-color;
+  border-radius: 5px;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.container-header{
+  border-bottom: 1px dotted rgba(128, 128, 128, 0.28);
+  padding: .5rem;
+  label{
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  > :last-child{
+    align-items: center;
+    display: flex;
+  }
+}
+
+.container-footer{
+  padding: 1rem 1rem 0 1rem;
+  border-top: 1px solid $light-grey-color;
+   button {
+     border-radius: 3px;
+     font-family: "Microsoft Sans Serif";
+     font-weight: bolder;
+   }
+}
+
+.container-message {
+  background-color: $light-color-message;
+  margin: 2rem auto;
+  padding: 2rem 0;
+  text-align: center;
+  border: 2px dotted rgba(0, 128, 76, 0.56);
+}
