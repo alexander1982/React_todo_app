@@ -11,12 +11,15 @@ $(document).foundation();
 require('style-loader!css-loader!sass-loader!ApplicationStyles');
 
 ReactDOM.render(
-	<Router history={hashHistory}>
-		<Route path="/" component={TodoApp}>
-			<IndexRoute component=""/>
-			<Route path="/" component=""/>
-		</Route>
-	</Router>,
+<p>Hi</p>,
+	//<Router history={hashHistory}>
+	//	<Route path="/" component={TodoApp}>
+	//		<IndexRoute component=""/>
+	//		<Route path="/" component=""/>
+	//	</Route>
+	//</Router>,
   document.getElementById('app')
 );
+
+require('./redux-example.jsx');
 
