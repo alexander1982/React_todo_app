@@ -2,10 +2,7 @@ var expect = require('expect');
 var actions = require('Actions');
 
 describe('Actions', () => {
-	it('Should exist', () => {
-		expect(actions).toExist();
-	});
-	
+
 	it('Should generate search text action', () => {
 		var action = {
 			type: 'SET_SEARCH_TEXT',
