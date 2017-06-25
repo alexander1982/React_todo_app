@@ -36,7 +36,7 @@ describe('Reducers', () => {
 				text: 'Some generic todo'
 			};
 
-			var res = reducers.addTodoReducer(df([]), df(action));
+			var res = reducers.todosReducer(df([]), df(action));
 			expect(res.length).toEqual(1);
 			expect(res[0].text).toEqual(action.text);
 		})
@@ -56,7 +56,7 @@ describe('Reducers', () => {
 				id: 55
 			};
 			
-			var res = reducers.toggleTodoReducer(df(todos), df(action));
+			var res = reducers.todosReducer(df(todos), df(action));
 			expect(res[0].completed).toEqual(false);
 			expect(res[0].completedAt).toEqual(undefined);
 		});

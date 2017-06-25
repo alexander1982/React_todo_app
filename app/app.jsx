@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
+var {Provider} = require('react-redux');
 var {Router, Route, hashHistory, IndexRoute} = require('react-router');
 var $ = require('jquery');
 window.jQuery = $;
@@ -22,7 +23,9 @@ $(document).foundation();
 require('style-loader!css-loader!sass-loader!ApplicationStyles');
 
 ReactDOM.render(
-<TodoApp/>,
+<Provider store={store}>
+	<TodoApp/>
+</Provider>,
 	//<Router history={hashHistory}>
 	//	<Route path="/" component={TodoApp}>
 	//		<IndexRoute component=""/>
