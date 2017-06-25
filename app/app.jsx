@@ -4,6 +4,17 @@ var {Router, Route, hashHistory, IndexRoute} = require('react-router');
 var $ = require('jquery');
 window.jQuery = $;
 var TodoApp = require('TodoApp');
+var actions = require('Actions');
+var store = require('ConfigureStore').configure();
+
+
+store.subscribe(() => {
+	console.log('New state ', store.getState());
+});
+
+store.dispatch(actions.addTodo('Clean your shit'));
+store.dispatch(actions.setSearchText('shit'));
+store.dispatch(actions.toggleShowCompleted());
 
 //Load Foundation
 $(document).foundation();
@@ -11,7 +22,7 @@ $(document).foundation();
 require('style-loader!css-loader!sass-loader!ApplicationStyles');
 
 ReactDOM.render(
-<p>Hi</p>,
+<TodoApp/>,
 	//<Router history={hashHistory}>
 	//	<Route path="/" component={TodoApp}>
 	//		<IndexRoute component=""/>
@@ -21,5 +32,5 @@ ReactDOM.render(
   document.getElementById('app')
 );
 
-require('./redux-example.jsx');
+//require('./redux-example.jsx');
 

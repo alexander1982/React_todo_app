@@ -19,7 +19,8 @@ export var showCompletedReducer = (state = false, action) => {
 	}
 };
 
-export var addTodoReducer = (state = [], action) => {
+
+export var todosReducer = (state = [], action) => {
 	switch(action.type) {
 		case 'ADD_TODO':
 			return [
@@ -31,18 +32,11 @@ export var addTodoReducer = (state = [], action) => {
 					completedAt: undefined
 				}
 			];
-		default:
-			return state;
-	}
-};
-
-export var toggleTodoReducer = (state = [], action) => {
-	switch(action.type) {
 		case 'TOGGLE_TODO':
 			return state.map((todo) => {
 				if(todo.id === action.id) {
 					var nextCompleted = !todo.completed;
-					
+
 					return {
 						...todo,
 						completed: nextCompleted,
@@ -55,3 +49,39 @@ export var toggleTodoReducer = (state = [], action) => {
 			return state;
 	}
 };
+//export var addTodoReducer = (state = [], action) => {
+//	switch(action.type) {
+//		case 'ADD_TODO':
+//			return [
+//				...state,
+//				{
+//					id: uuid(),
+//					text: action.text,
+//					createdAt: moment().unix(),
+//					completedAt: undefined
+//				}
+//			];
+//		default:
+//			return state;
+//	}
+//};
+//
+//export var toggleTodoReducer = (state = [], action) => {
+//	switch(action.type) {
+//		case 'TOGGLE_TODO':
+//			return state.map((todo) => {
+//				if(todo.id === action.id) {
+//					var nextCompleted = !todo.completed;
+//					
+//					return {
+//						...todo,
+//						completed: nextCompleted,
+//						completedAt: nextCompleted ? moment().unix() : undefined
+//					}
+//				}
+//				return todo;
+//			});
+//		default:
+//			return state;
+//	}
+//};
