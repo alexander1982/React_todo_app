@@ -3,40 +3,47 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var TestUtils = require('react-addons-test-utils');
 var $ = require('jquery');
-var AddTodo = require('AddTodo');
+
+import * as actions from 'Actions';
+var {AddTodo} = require('AddTodo');
 
 
 describe('AddTodo', () => {
 	it('Should exist', () => {
 		expect(AddTodo).toExist()
 	});
-
-	it('Should call onAddTodo with valid data', () => {
+	
+	it('Should dispatch addTodo when valid todo text', () => {
 		var TodoText = 'Hello';
+		var action = actions.addTodo(TodoText);
+		
 		var spy = expect.createSpy();
-		var addTodo = TestUtils.renderIntoDocument(<AddTodo onAddTodo={spy}/>);
+		var addTodo = TestUtils.renderIntoDocument(<AddTodo dispatch={spy}/>);
+		var $el = $(ReactDOM.findDOMNode(addTodo));
+	
+		addTodo.refs.todoText.value = TodoText;
+		TestUtils.Simulate.submit($el.find('form')[0]);
+
+		expect(spy).toHaveBeenCalledWith(action);
+	});
+
+	it('Should call onAddTodo with valid input', () => {
+		var TodoText = 'Hello';
+		var action = actions.addTodo(TodoText);
+
+		var spy = expect.createSpy();
+		var addTodo = TestUtils.renderIntoDocument(<AddTodo dispatch={spy}/>);
 		var $el = $(ReactDOM.findDOMNode(addTodo));
 
 		addTodo.refs.todoText.value = TodoText;
 		TestUtils.Simulate.submit($el.find('form')[0]);
-		expect(spy).toHaveBeenCalledWith(TodoText);
+		expect(spy).toHaveBeenCalledWith(action);
 	});
 
-	it('Should call onAddTodo with valid data', () => {
-		var TodoText = 'Hello';
-		var spy = expect.createSpy();
-		var addTodo = TestUtils.renderIntoDocument(<AddTodo onAddTodo={spy}/>);
-		var $el = $(ReactDOM.findDOMNode(addTodo));
-
-		addTodo.refs.todoText.value = TodoText;
-		TestUtils.Simulate.submit($el.find('form')[0]);
-		expect(spy).toHaveBeenCalledWith(TodoText);
-	});
-
-	it('Should not call onAddTodo with invalid data', () => {
+	it('Should not dispatch AD_TODO when invalid todo text', () => {
 		var TodoText = '';
 		var spy = expect.createSpy();
-		var addTodo = TestUtils.renderIntoDocument(<AddTodo onAddTodo={spy}/>);
+		var addTodo = TestUtils.renderIntoDocument(<AddTodo dispatch={spy}/>);
 		var $el = $(ReactDOM.findDOMNode(addTodo));
 
 		addTodo.refs.todoText.value = TodoText;
