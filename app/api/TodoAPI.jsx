@@ -26,8 +26,8 @@ module.exports = {
 		});
 
 		filteredTodos = filteredTodos.filter((todo) => {
-			var text = todo.text.toLowerCase();
-			return searchText.length === 0 || text.indexOf(searchText) > -1;
+			var text = todo.text;
+			return todo.text.toLowerCase().includes(searchText);
 		});
 
 		filteredTodos.sort(function(a, b) {

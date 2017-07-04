@@ -1,4 +1,5 @@
 var redux = require('redux');
+
 //var { nameReducer, hobbiesReducer, moviesReducer, mapReducer } = require('./../reducers/index.jsx');
 //var thunk = require('redux-thunk').default;
 //
@@ -17,7 +18,7 @@ var redux = require('redux');
 //
 //	return store;
 //};
-var { searchTextReducer, showCompletedReducer, todosReducer } = require('Reducers');
+import { searchTextReducer, showCompletedReducer, todosReducer } from 'Reducers';
 
 export var configure = (initialState = {}) => {
 	var reducer = redux.combineReducers({

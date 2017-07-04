@@ -5,9 +5,11 @@ var { Provider } = require('react-redux');
 var TestUtils = require('react-addons-test-utils');
 var $ = require('jquery');
 
-import { configure } from 'ConfigureStore';
-import ConnectedTodoList, { TodoList } from 'TodoList';
-import ConnectedTodo, { Todo } from 'Todo';
+import {configure} from 'ConfigureStore';
+import  {TodoList} from 'TodoList';
+import ConnectedTodoList from 'TodoList';
+import {Todo} from 'Todo';
+import ConnectedTodo from 'Todo';
 
 describe('TodoList', () => {
 	it('Should exist', () => {
@@ -31,25 +33,29 @@ describe('TodoList', () => {
 				createdAt  : 500
 			}
 		];
-		var store = configure({
-			                      todos
-		                      });
+		var store = configure({ todos });
 		var provider = TestUtils.renderIntoDocument(
-			<Provider store={store}>
-				<ConnectedTodoList/>
-			</Provider>
-	);
+		<Provider store={store}>
+			<ConnectedTodoList/>
+		</Provider>
+		);
 		var todoList = TestUtils.scryRenderedComponentsWithType(provider, ConnectedTodoList)[0];
 		var todosComponents = TestUtils.scryRenderedComponentsWithType(todoList, ConnectedTodo);
-
+		console.log(store);
 		expect(todosComponents.length).toBe(todos.length);
 	});
 
 	it('Should render a message if there are no todos', () => {
 		var todos = [];
-		var todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>);
+		var store = configure({ todos });
+		var provider = TestUtils.renderIntoDocument(
+		<Provider store={store}>
+			<ConnectedTodoList/>
+		</Provider>
+		);
+		var todoList = TestUtils.scryRenderedComponentsWithType(provider, ConnectedTodoList)[0];
 		var $el = $(ReactDOM.findDOMNode(todoList));
 
-		expect($el.find('.container_message').length).toBe(0);
+		expect($el.find('.container_message').length).toBe(1);
 	});
 });
