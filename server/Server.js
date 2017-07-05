@@ -1,8 +1,8 @@
-let express = require('express');
-let app = express();
-let path = require('path');
-let publicPath = path.join(__dirname, '../public');
-let imagesPath = path.join(__dirname, '../public/images');
+var express = require('express');
+var app = express();
+var path = require('path');
+var publicPath = path.join(__dirname, '../public');
+var imagesPath = path.join(__dirname, '../public/images');
 
 const PORT = process.env.PORT || 3000;
 

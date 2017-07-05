@@ -10,7 +10,7 @@ export var TodoList = createClass({
 		                                  var renderTodos = () => {
 			                                  if(todos.length === 0){
 				                                  return (
-					                                  <p className="container-message">Nothing to do...</p>
+					                                  <p className="container_message">Nothing to do...</p>
 				                                  )
 			                                  }
 			                                  return TodoAPI.filterTodos(todos, showCompleted, searchText).map((todo) => {
@@ -28,8 +28,6 @@ export var TodoList = createClass({
                                   });
 export default connect(
 (state) => {
-	return {
-		todos: state.todos
-	};
+	return state;
 }
 )(TodoList);

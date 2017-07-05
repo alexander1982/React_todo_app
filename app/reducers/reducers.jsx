@@ -28,7 +28,7 @@ export var todosReducer = (state = [], action) => {
 					id         : uuid(),
 					text       : action.text,
 					createdAt  : moment().unix(),
-					completedAt: undefined
+					completed: undefined
 				}
 			];
 		case 'TOGGLE_TODO':
@@ -58,7 +58,7 @@ export var todosReducer = (state = [], action) => {
 //					id: uuid(),
 //					text: action.text,
 //					createdAt: moment().unix(),
-//					completedAt: undefined
+//					compvaredAt: undefined
 //				}
 //			];
 //		default:
@@ -66,17 +66,17 @@ export var todosReducer = (state = [], action) => {
 //	}
 //};
 //
-//export var toggleTodoReducer = (state = [], action) => {
+//export var toggvarodoReducer = (state = [], action) => {
 //	switch(action.type) {
 //		case 'TOGGLE_TODO':
 //			return state.map((todo) => {
 //				if(todo.id === action.id) {
-//					var nextCompleted = !todo.completed;
+//					var nextCompvared = !todo.compvared;
 //					
 //					return {
 //						...todo,
-//						completed: nextCompleted,
-//						completedAt: nextCompleted ? moment().unix() : undefined
+//						compvared: nextCompvared,
+//						compvaredAt: nextCompvared ? moment().unix() : undefined
 //					}
 //				}
 //				return todo;

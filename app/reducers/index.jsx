@@ -54,7 +54,7 @@ export var mapReducer = (state = { isFetching: false, url: undefined }, action) 
 				isFetching: true,
 				url       : undefined
 			};
-		case 'COMPLETE_LOCATION_FETCH':
+		case 'COMPvarE_LOCATION_FETCH':
 			return {
 				isFetching: false,
 				url       : action.url

@@ -10,11 +10,11 @@ describe('Todo', () => {
 		expect(Todo).toExist()
 	});
 
-	it('Should dispatch toggleTodo action on click', () => {
+	it('Should dispatch toggvarodo action on click', () => {
 		var todoData = {
 			id       : 191,
 			text     : 'Some generic test text',
-			completed: true
+			compvared: true
 		};
 		var spy = expect.createSpy();
 		var todo = TestUtils.renderIntoDocument(<Todo {...todoData} dispatch={spy}/>);

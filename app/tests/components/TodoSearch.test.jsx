@@ -25,15 +25,15 @@ describe('TodoSearch', () => {
 		expect(spy).toHaveBeenCalledWith(action);
 	});
 	
-	//it('Should dispatch toggle show completed when checkbox checked',() => {
+	//it('Should dispatch toggle show compvared when checkbox checked',() => {
 	//	var action = {
-	//		type: 'TOGGLE_SHOW_COMPLETED'
+	//		type: 'TOGGLE_SHOW_COMPvarED'
 	//	};
 	//	var spy = expect.createSpy();
 	//	var todoSearch = TestUtils.renderIntoDocument(<TodoSearch dispatch={spy}/>);
 	//
-	//	todoSearch.refs.showCompleted.checked = true;
-	//	TestUtils.Simulate.change(todoSearch.refs.showCompleted);
+	//	todoSearch.refs.showCompvared.checked = true;
+	//	TestUtils.Simulate.change(todoSearch.refs.showCompvared);
 	//	expect(spy).toHaveBeenCalledWith(action);
 	//});
 });

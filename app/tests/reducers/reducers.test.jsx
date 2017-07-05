@@ -18,8 +18,8 @@ describe('Reducers', () => {
 		});
 	});
 	
-	describe('ShowCompleted', () => {
-		it('Should flip showCompleted status', () => {
+	describe('ShowCompvared', () => {
+		it('Should flip showCompvared status', () => {
 			var action = {
 				type: 'TOGGLE_SHOW_COMPLETED'
 			};

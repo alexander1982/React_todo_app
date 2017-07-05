@@ -71,13 +71,13 @@ describe('TodoApi', () => {
 			}
 		];
 		
-		it('Should return all items if showCompleted is true', () => {
+		it('Should return all items if showCompvared is true', () => {
 			var filteredTodos = TodoAPI.filterTodos(todos, true, '');
 			
 			expect(filteredTodos.length).toBe(3);
 		});
 
-		it('Should return not completed items if showCompleted is false', () => {
+		it('Should return not compvared items if showCompvared is false', () => {
 			var filteredTodos = TodoAPI.filterTodos(todos, false, '');
 
 			expect(filteredTodos.length).toBe(2);
