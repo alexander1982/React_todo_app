@@ -45,8 +45,8 @@ var TodoApp = createClass({
 		                          return (
 		                          <div>
 			                          <h1 className="page-title">Todo App</h1>
-			                          <div className="row">
-				                          <div className="column small-centered small-11 medium-6 large-5">
+			                          <div className="row align-center-middle">
+				                          <div className="column medium-10 large-6">
 					                          <div className="container">
 						                          <TodoSearch onSearch={this.handleSearch}/>
 						                          <TodoList/>

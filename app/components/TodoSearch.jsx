@@ -19,7 +19,7 @@ export var TodoSearch = createClass({
 			                                    </div>
 			                                    <div>
 				                                    <label>
-					                                    <input type="checkbox" ref="showCompleted" checked={showCompleted} onChange={() => {
+					                                    <input className="checkboxClass" type="checkbox" ref="showCompleted" checked={showCompleted} onChange={() => {
 					                                       dispatch(actions.toggleShowCompleted());
 					                                    }}/>
 					                                    Show completed Todos

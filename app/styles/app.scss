@@ -2,12 +2,19 @@
 @import "components/page-title";
 @import "components/container";
 @import "components/todo";
+@import "components/todoSearch";
 //COMPONENTS
 
 //FOUNDATION
 @import "base/_foundation-settings";
 @import "foundation";
+@include foundation-flex-classes;
+@include foundation-flex-grid;
 @include foundation-everything;
+
+body{
+  height: 100vh;
+}
 
 
 

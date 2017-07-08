@@ -23,7 +23,7 @@ export var Todo = createClass({
 		                        dispatch(actions.toggleTodo(id));
 		                       }}>
 			                       <div>
-				                       <input type="checkbox" checked={completed}/>
+				                       <input type="checkbox" className="checkboxClass" checked={completed}/>
 			                       </div>
 			                       <label>
 				                       <p>
